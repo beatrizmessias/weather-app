@@ -208,3 +208,6 @@ description_label = Label(body_frame, text='', anchor='center', bg=bg, fg=co0, f
 description_label.place(x=170, y=190)
 
 window.mainloop()
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
