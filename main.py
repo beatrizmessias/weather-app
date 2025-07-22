@@ -7,9 +7,12 @@ from PIL import Image, ImageTk
 import requests
 from datetime import datetime
 import json
+from dotenv import load_dotenv
+import os
 import pytz
 import pycountry_convert as pc
 
+load_dotenv()
 
 # Colors
 co0 = "#2E2E2E"
@@ -44,9 +47,9 @@ style.theme_use('clam')
 
 # Return info
 def info():
-    key = '7a41c9a9fa31295e2ab9dbacbd031a2d'
+    api_key = os.getenv("API_KEY")
     city = location_entry.get()
-    api_link = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}'
+    api_link = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
 
     # Request
     r = requests.get(api_link)
